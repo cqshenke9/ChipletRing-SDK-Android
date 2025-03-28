@@ -25,7 +25,7 @@ public class DeviceAdapter extends RecyclerView.Adapter<DeviceAdapter.StrokeHold
 
 
     private OnItemClickListener onItemClickListener;
-    private List<BleDeviceInfo> dataEntityList = new ArrayList<>();
+    private List<BleDeviceInfo> dataEntityList = new ArrayList<BleDeviceInfo>();
 
     @Override
     public StrokeHolder onCreateViewHolder(ViewGroup parent, int viewType) {

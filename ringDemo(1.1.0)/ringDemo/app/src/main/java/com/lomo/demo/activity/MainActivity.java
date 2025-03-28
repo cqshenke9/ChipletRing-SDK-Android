@@ -47,7 +47,7 @@ public class MainActivity extends BaseActivity {
     SwipeRefreshLayout swipeRefreshLayout;
     private DeviceAdapter adapter;
 
-    Set<String> macList = new HashSet<>();
+    Set<String> macList = new HashSet<String>();
 
     @SuppressLint("MissingInflatedId")
     @Override

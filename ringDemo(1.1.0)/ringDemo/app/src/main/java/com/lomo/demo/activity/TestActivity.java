@@ -77,7 +77,7 @@ public class TestActivity extends BaseActivity implements IResponseListener, Vie
     private BluetoothDevice bluetoothDevice;
     static String mac;
     String outputPath = com.lomo.demo.FileUtil.getSDPath(App.getInstance(), "保存" + ".pcm");
-    private List<BluetoothDevice> dataEntityList = new ArrayList<>();
+    private List<BluetoothDevice> dataEntityList = new ArrayList<BluetoothDevice>();
     Handler handler = new Handler(new Handler.Callback() {
         @Override
         public boolean handleMessage(@NonNull Message msg) {
@@ -303,11 +303,20 @@ public class TestActivity extends BaseActivity implements IResponseListener, Vie
 //        postView("\n已保存：" + outputPath);
     }
     public static void savePcmFile(String filePath, byte[] byteArray) {
-        try (FileOutputStream fos = new FileOutputStream(filePath,true)) {
+        FileOutputStream fos = null;
+        try {
+            fos = new FileOutputStream(filePath, true);
             fos.write(byteArray);
-            //  fos.flush();
         } catch (IOException e) {
             e.printStackTrace();
+        } finally {
+            if (fos != null) {
+                try {
+                    fos.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
     @Override

@@ -20,6 +20,9 @@ buildscript {
         classpath 'org.greenrobot:greendao-gradle-plugin:3.3.0' // add plugin
     }
 }
+ext {
+    sourceCompatibility = JavaVersion.VERSION_11
+}
 
 allprojects {
     repositories {

@@ -93,7 +93,7 @@ public class BaseActivity extends AppCompatActivity{
      * @return
      */
     private List<String> getDeniedPermissions(String[] permissions) {
-        List<String> needRequestPermissionList = new ArrayList<>();
+        List<String> needRequestPermissionList = new ArrayList<String>();
         for (String permission : permissions) {
             if (ContextCompat.checkSelfPermission(this, permission) !=
                     PackageManager.PERMISSION_GRANTED ||
@@ -152,7 +152,9 @@ public class BaseActivity extends AppCompatActivity{
      */
     private void startAppSettings() {
         Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
-        intent.setData(Uri.parse("package:" + getPackageName()));
+        //        intent.setData(Uri.parse("package:" + getPackageName()));
+        intent.setData(Uri.parse(String.format("package:%s", getPackageName())));
+
         startActivity(intent);
     }
 

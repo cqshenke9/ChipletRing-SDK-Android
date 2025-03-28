@@ -7,7 +7,7 @@ import java.util.UUID;
 public class ParsedAd {
     public byte flags;
 
-    public List<UUID> uuids = new ArrayList<>();
+    public List<UUID> uuids = new ArrayList<UUID>();
 
     public String localName;
     public String diyInfo;
